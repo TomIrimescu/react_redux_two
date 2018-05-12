@@ -4,9 +4,9 @@ const initialState = {
   persons: []
 };
 
-const Reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ADD:
+    case actionTypes.ADD_PERSON:
       const newPerson = {
         id: Math.random(),
         name: "Tomcat",
@@ -16,7 +16,7 @@ const Reducer = (state = initialState, action) => {
         ...state,
         persons: state.persons.concat(newPerson)
       };
-    case actionTypes.DELETE:
+    case actionTypes.REMOVE_PERSON:
       return {
         ...state,
         persons: state.persons.filter(person => person.id !== action.personId)
@@ -25,4 +25,4 @@ const Reducer = (state = initialState, action) => {
   return state;
 };
 
-export default Reducer;
+export default reducer;
